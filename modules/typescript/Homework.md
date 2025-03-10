@@ -21,7 +21,7 @@ Tasks 1-3 weight: 60 points
 
 - File: [groupAnagrams.js](01_group_anagrams/src/group_anagrams.ts)
 - Description: Write a function that groups anagrams from a list of strings. Two strings are anagrams if they contain the same characters in different orders (e.g., `"eat"` and `"tea"`).
-- Expected output: [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]].
+- Expected output: `[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]`.
 
 ##### 2. Two Sum (20 points):
 
