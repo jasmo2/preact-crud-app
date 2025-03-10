@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="10" failures="0" errors="0" time="0.673">
+  <testsuite name="groupAnagrams" errors="0" failures="0" skipped="0" timestamp="2025-03-10T07:36:39" time="0.652" tests="10">
+    <testcase classname="groupAnagrams should group anagrams correctly for a normal input" name="groupAnagrams should group anagrams correctly for a normal input" time="0.002">
+    </testcase>
+    <testcase classname="groupAnagrams should handle empty input" name="groupAnagrams should handle empty input" time="0">
+    </testcase>
+    <testcase classname="groupAnagrams should handle input with no anagrams" name="groupAnagrams should handle input with no anagrams" time="0">
+    </testcase>
+    <testcase classname="groupAnagrams should handle input with duplicate words" name="groupAnagrams should handle input with duplicate words" time="0.001">
+    </testcase>
+    <testcase classname="groupAnagrams should handle input with single words" name="groupAnagrams should handle input with single words" time="0">
+    </testcase>
+    <testcase classname="Group Anagrams - Advanced Tests should handle a large input with multiple groups" name="Group Anagrams - Advanced Tests should handle a large input with multiple groups" time="0">
+    </testcase>
+    <testcase classname="Group Anagrams - Advanced Tests should handle input where all words are anagrams" name="Group Anagrams - Advanced Tests should handle input where all words are anagrams" time="0">
+    </testcase>
+    <testcase classname="Group Anagrams - Advanced Tests should handle extremely large input efficiently" name="Group Anagrams - Advanced Tests should handle extremely large input efficiently" time="0.007">
+    </testcase>
+    <testcase classname="Group Anagrams - Advanced Tests should handle special characters in strings" name="Group Anagrams - Advanced Tests should handle special characters in strings" time="0">
+    </testcase>
+    <testcase classname="Group Anagrams - Advanced Tests should handle input with numbers in strings" name="Group Anagrams - Advanced Tests should handle input with numbers in strings" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>

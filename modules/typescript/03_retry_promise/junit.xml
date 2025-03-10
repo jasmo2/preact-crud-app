@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="11" failures="0" errors="0" time="0.68">
+  <testsuite name="retryPromise" errors="0" failures="0" skipped="0" timestamp="2025-03-10T10:04:02" time="0.66" tests="11">
+    <testcase classname="retryPromise should retry when the promise fails and retries are allowed" name="retryPromise should retry when the promise fails and retries are allowed" time="0.001">
+    </testcase>
+    <testcase classname="retryPromise should stop retrying if retries are exhausted" name="retryPromise should stop retrying if retries are exhausted" time="0.003">
+    </testcase>
+    <testcase classname="retryPromise should respect the shouldRetry condition" name="retryPromise should respect the shouldRetry condition" time="0">
+    </testcase>
+    <testcase classname="retryPromise should not retry on success" name="retryPromise should not retry on success" time="0">
+    </testcase>
+    <testcase classname="retryPromise should not retry if retries are set to 0" name="retryPromise should not retry if retries are set to 0" time="0.001">
+    </testcase>
+    <testcase classname="retryPromise should handle direct fulfillment properly" name="retryPromise should handle direct fulfillment properly" time="0">
+    </testcase>
+    <testcase classname="retryPromise should handle direct rejection properly" name="retryPromise should handle direct rejection properly" time="0.001">
+    </testcase>
+    <testcase classname="retryPromise should not crash on undefined rejections" name="retryPromise should not crash on undefined rejections" time="0">
+    </testcase>
+    <testcase classname="retryPromise should retry multiple times until retries are exhausted" name="retryPromise should retry multiple times until retries are exhausted" time="0">
+    </testcase>
+    <testcase classname="retryPromise should respect retry count when shouldRetry is always true" name="retryPromise should respect retry count when shouldRetry is always true" time="0.001">
+    </testcase>
+    <testcase classname="retryPromise should block retries if shouldRetry always returns false" name="retryPromise should block retries if shouldRetry always returns false" time="0">
+    </testcase>
+  </testsuite>
+</testsuites>
