@@ -19,19 +19,19 @@ Tasks 1-3 weight: 60 points
 
 ##### 1. Group Anagrams (20 points):
 
-- File: [groupAnagrams.js](01_group_anagrams/src/group_anagrams.ts)
+- File: [groupAnagrams.ts](01_group_anagrams/src/group_anagrams.ts)
 - Description: Write a function that groups anagrams from a list of strings. Two strings are anagrams if they contain the same characters in different orders (e.g., `"eat"` and `"tea"`).
 - Expected output: `[["bat"], ["nat", "tan"], ["ate", "eat", "tea"]]`.
 
 ##### 2. Two Sum (20 points):
 
-- File: [twoSum.js](02_two_sum/src/two_sum.ts)
+- File: [twoSum.ts](02_two_sum/src/two_sum.ts)
 - Description: Write a function that finds two numbers in an array that add up to a specific target. The function should return indices of the two numbers.
 - Expected output: [0, 1] for input `[2, 7, 11, 15]` with target `9`.
 
 ##### 3: Retry Promise (20 points)
 
-- File: [minimumWeight.js](03_retry_promise/src/retry_promise.ts)
+- File: [minimumWeight.ts](03_retry_promise/src/retry_promise.ts)
 - Description: Write a function that implements a retry policy for a promise-based function. The function should:
   - Retry the promise a specified number of times upon failure.
   - Include an optional function to decide if it should perform the retry.
