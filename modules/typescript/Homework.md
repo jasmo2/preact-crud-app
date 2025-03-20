@@ -31,7 +31,7 @@ Tasks 1-3 weight: 60 points
 
 ##### 3: Retry Promise (20 points)
 
-- File: [minimumWeight.ts](03_retry_promise/src/retry_promise.ts)
+- File: [retry_promise.ts](03_retry_promise/src/retry_promise.ts)
 - Description: Write a function that implements a retry policy for a promise-based function. The function should:
   - Retry the promise a specified number of times upon failure.
   - Include an optional function to decide if it should perform the retry.
