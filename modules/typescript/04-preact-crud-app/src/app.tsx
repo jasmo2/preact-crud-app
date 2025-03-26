@@ -1,52 +1,62 @@
 import { h } from "preact";
 import "./app.css";
-
-const API_URL = "https://jsonplaceholder.typicode.com/posts";
-
-type Post = {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-};
+import { PostForm } from "./components/PostForm";
+import { PostItem } from "./components/PostItem";
+import { usePosts } from "./hooks/usePosts";
+import { Post } from './types/post';
 
 export const CrudApp = () => {
-  const posts: Post[] = [];
-  const currentPost = { title: "", body: "" };
+  const {
+    posts,
+    title,
+    body,
+    editingId,
+    setTitle,
+    setBody,
+    createPost,
+    updatePost,
+    deletePost,
+    resetForm,
+    setEditingId
+  } = usePosts();
+
+  const handleSubmit = async (e: Event) => {
+    e.preventDefault();
+    if (editingId) {
+      await updatePost();
+    } else {
+      await createPost();
+    }
+    resetForm();
+  };
+
+  const handleEdit = (post: Post) => {
+    setEditingId(post.id);
+    setTitle(post.title);
+    setBody(post.body);
+  };
 
   return (
     <div className="container">
       <h1>Preact CRUD App</h1>
-
-      <div className="form-container">
-        <h2>Create Post</h2>
-        <input
-          type="text"
-          name="title"
-          placeholder="Title"
-          value={currentPost.title}
-          className="input"
-        />
-        <textarea
-          name="body"
-          placeholder="Body"
-          value={currentPost.body}
-          className="textarea"
-        />
-
-        <button className="button button-primary">Create</button>
-        <button className="button">Cancel</button>
-      </div>
-
+      <PostForm
+        title={title}
+        body={body}
+        setTitle={setTitle}
+        setBody={setBody}
+        handleSubmit={handleSubmit}
+        handleCancel={resetForm}
+        isEditing={!!editingId}
+      />
       <h2>Posts</h2>
       <ul className="post-list">
         {posts.map((post) => (
-          <li key={post.id} className="post-item">
-            <strong>{post.title}</strong>
-            <p>{post.body}</p>
-            <button className="button button-edit">Edit</button>
-            <button className="button button-delete">Delete</button>
-          </li>
+          <PostItem
+            key={post.id}
+            post={post}
+            onEdit={handleEdit}
+            onDelete={deletePost}
+          />
         ))}
       </ul>
     </div>
