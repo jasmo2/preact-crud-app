@@ -36,6 +36,7 @@ export const PostsProvider = ({ children }: Props): h.JSX.Element => {
 
   return (
     <PostsContext.Provider value={{
+      ...posts,
       handleSubmit,
       handleEdit
     }}>
