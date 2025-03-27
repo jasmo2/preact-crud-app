@@ -1,26 +1,17 @@
 import { h } from "preact";
 import { FC } from 'preact/compat';
-import { Dispatch, StateUpdater } from "preact/hooks";
+import { usePostsContext } from "../context/PostsContext";
 
-interface PostFormProps {
-  title: string;
-  body: string;
-  setTitle: Dispatch<StateUpdater<string>>;
-  setBody: Dispatch<StateUpdater<string>>;
-  handleSubmit: (e: Event) => void;
-  handleCancel: () => void;
-  isEditing: boolean;
-}
-
-export const PostForm: FC<PostFormProps> = ({
-  title,
-  body,
-  setTitle,
-  setBody,
-  handleSubmit,
-  handleCancel,
-  isEditing
-}) => {
+export const PostForm: FC = () => {
+  const {
+    title,
+    body,
+    setTitle,
+    setBody,
+    handleSubmit,
+    resetForm,
+    editingId
+  } = usePostsContext();
 
   const handleTitleChange = (e: h.JSX.TargetedEvent<HTMLInputElement>) => {
     setTitle(e.currentTarget.value);
@@ -32,7 +23,7 @@ export const PostForm: FC<PostFormProps> = ({
 
   return (
     <div className="form-container">
-      <h2>{isEditing ? 'Edit Post' : 'Create Post'}</h2>
+      <h2>{editingId ? 'Edit Post' : 'Create Post'}</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -48,9 +39,9 @@ export const PostForm: FC<PostFormProps> = ({
           className="textarea"
         />
         <button type="submit" className="button button-primary">
-          {isEditing ? 'Update' : 'Create'}
+          {editingId ? 'Update' : 'Create'}
         </button>
-        <button type="button" className="button" onClick={handleCancel}>
+        <button type="button" className="button" onClick={resetForm}>
           Cancel
         </button>
       </form>

@@ -1,4 +1,5 @@
 import { h } from "preact";
+import { usePostsContext } from "../context/PostsContext";
 
 interface Post {
   id: number;
@@ -8,19 +9,19 @@ interface Post {
 
 interface PostItemProps {
   post: Post;
-  onEdit: (post: Post) => void;
-  onDelete: (id: number) => void;
 }
 
-export const PostItem = ({ post, onEdit, onDelete }: PostItemProps) => {
+export const PostItem = ({ post }: PostItemProps) => {
+  const { handleEdit, deletePost } = usePostsContext();
+
   return (
     <li className="post-item">
       <strong>{post.title}</strong>
       <p>{post.body}</p>
-      <button className="button button-edit" onClick={() => onEdit(post)}>
+      <button className="button button-edit" onClick={() => handleEdit(post)}>
         Edit
       </button>
-      <button className="button button-delete" onClick={() => onDelete(post.id)}>
+      <button className="button button-delete" onClick={() => deletePost(post.id)}>
         Delete
       </button>
     </li>

@@ -1,9 +1,24 @@
-import { useState, useEffect } from "preact/hooks"
+import { useState, useEffect, Dispatch } from "preact/hooks"
 import { Post } from "../types/post"
+import { StateUpdater } from "preact/hooks"
+
+export interface PostApiTypes {
+  posts: Post[]
+  title: string
+  body: string
+  editingId: number | null
+  setTitle: Dispatch<StateUpdater<string>>
+  setBody: Dispatch<StateUpdater<string>>
+  createPost: () => Promise<void>
+  updatePost: () => Promise<void>
+  deletePost: (id: number) => Promise<void>
+  resetForm: () => void
+  setEditingId: Dispatch<StateUpdater<number | null>>
+}
 
 const API_URL = "https://jsonplaceholder.typicode.com/posts"
 
-export const usePosts = () => {
+export const usePosts = (): PostApiTypes => {
   const [posts, setPosts] = useState<Post[]>([])
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
