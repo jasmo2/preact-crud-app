@@ -1,9 +1,10 @@
 import "@testing-library/jest-dom"
-import createFetchMock from "jest-fetch-mock"
-import { vi } from "vitest"
+import { beforeAll, afterEach, afterAll } from "vitest"
+import { setupServer } from "msw/node"
+import { handlers } from "../mocks/handlers"
 
-//@ts-ignore
-const fetchMock = createFetchMock(vi)
+const server = setupServer(...handlers)
 
-//@ts-ignore
-fetchMock.enableMocks()
+beforeAll(() => server.listen({ onUnhandledRequest: "error" }))
+afterEach(() => server.resetHandlers())
+afterAll(() => server.close())

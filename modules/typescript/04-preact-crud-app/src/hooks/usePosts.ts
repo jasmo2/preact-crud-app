@@ -1,6 +1,7 @@
 import { useState, useEffect, Dispatch } from "preact/hooks"
 import { Post } from "../types/post"
 import { StateUpdater } from "preact/hooks"
+import { v4 as uuidv4 } from "uuid"
 
 export interface PostApiTypes {
   posts: Post[]
@@ -35,23 +36,25 @@ export const usePosts = (): PostApiTypes => {
   }
 
   const createPost = async () => {
+    console.log("TCL ~ createPost ~ title:", title, "body", body)
     const response = await fetch(API_URL, {
       method: "POST",
       body: JSON.stringify({
         title,
         body,
-        userId: 1,
+        userId: uuidv4(),
       }),
       headers: {
         "Content-type": "application/json",
       },
     })
-    console.log("TCL ~ createPost ~ response:", response)
     const newPost = await response.json()
+    console.log("TCL ~ createPost ~ newPost:", newPost)
     setPosts([newPost, ...posts])
   }
 
   const updatePost = async () => {
+    console.log("TCL ~ updatePost ~ editingId:", editingId)
     const response = await fetch(`${API_URL}/${editingId}`, {
       method: "PUT",
       body: JSON.stringify({
