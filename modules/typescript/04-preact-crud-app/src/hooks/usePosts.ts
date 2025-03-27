@@ -46,6 +46,7 @@ export const usePosts = (): PostApiTypes => {
         "Content-type": "application/json",
       },
     })
+    console.log("TCL ~ createPost ~ response:", response)
     const newPost = await response.json()
     setPosts([newPost, ...posts])
   }
